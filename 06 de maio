@@ -1,1 +1,32 @@
 
+<?php
+//exercício 1
+class Produto
+{
+	public $nome = "Celular" ;
+	public $preco  = 2999.99;
+	public $quantidade = 27;
+	public function  exibirInformacoes(){
+	echo "Nome: $this->nome, Preço: $this->preco, Quantidade: $this->quantidade <br>";
+	}
+	}
+	function mostrarMediaPrecos(Produto $produto, Produto $produto2) {
+	$media = ($produto->preco + $produto2->preco) / 2;
+	echo "A média dos preços dos produtos é $media";
+  }
+
+//exercício 2
+$produto = new Produto();
+$produto->exibirInformacoes();
+$produto2 = new Produto();
+$produto2->nome = "Tenis";
+$produto2->preco = 300;
+$produto2->quantidade = 7;
+$produto2->exibirInformacoes();
+
+mostrarMediaPrecos($produto, $produto2);
+
+ 
+
+
+?>
