@@ -1,0 +1,41 @@
+<?php
+
+class Carro {
+    private $modelo;
+    private $cor;
+    private $ano;
+
+    public function __construct($modelo, $cor, $ano) {
+        $this->modelo = $modelo;
+        $this->cor = $cor;
+        $this->ano = $ano;
+    }
+    public function getModelo() {
+        return $this->modelo;
+    }
+    public function setModelo($modelo) {
+        $this->modelo = $modelo;
+    }
+    public function getCor() {
+        return $this->cor;
+    }
+    public function setCor($cor) {
+        $this->cor = $cor;
+    }
+    public function getAno() {
+        return $this->ano;
+    }
+    public function setAno($ano) {
+        $this->ano = $ano;
+    }
+}
+
+$meuCarro = new Carro("Civic", "Preto", 2020);
+
+echo "Modelo: " . $meuCarro->getModelo() . "<br>";
+echo "Cor: " . $meuCarro->getCor() . "<br>";
+echo "Ano: " . $meuCarro->getAno() . "<br>";
+
+$meuCarro->setCor("Azul");
+echo "Cor atualizada: " . $meuCarro->getCor();
+?>
