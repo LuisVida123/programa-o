@@ -1,0 +1,48 @@
+<?php
+
+class ContaBancaria {
+    public $titular;
+    protected $saldo;
+    private $senha;
+
+    public function __construct($titular, $senha, $saldoInicial = 0) {
+        $this->titular = $titular;
+        $this->senha = $senha;
+        $this->saldo = $saldoInicial;
+    }
+
+    public function depositar($valor) {
+        if ($valor > 0) {
+            $this->saldo += $valor;
+            echo "Depósito de R$ {$valor} realizado com sucesso.<br>";
+        }
+    }
+
+    public function sacar($valor, $senha) {
+        if ($senha !== $this->senha) {
+            echo "Senha incorreta. Saque não autorizado.<br>";
+            return;
+        }
+
+        if ($valor > 0 && $valor <= $this->saldo) {
+            $this->saldo -= $valor;
+            echo "Saque de R$ {$valor} realizado com sucesso.<br>";
+        } else {
+            echo "Saldo insuficiente ou valor inválido.<br>";
+        }
+    }
+
+    public function verSaldo($senha) {
+        if ($senha === $this->senha) {
+            echo "Saldo atual: R$ {$this->saldo}<br>";
+        } else {
+            echo "Senha incorreta. Acesso negado.<br>";
+        }
+    }
+}
+>?
+
+
+
+
+
