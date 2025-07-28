@@ -1,0 +1,37 @@
+<?php
+class Livro {
+    public $titulo;
+    public $autor;
+    private $preco;
+    protected $estoque;
+public function __construct($titulo, $autor, $preco, $estoque = 0) {
+        $this->titulo = $titulo;
+        $this->autor = $autor;
+        $this->preco = $preco;
+        $this->estoque = $estoque;
+    }
+public function getPreco() {
+        return $this->preco;
+    }
+public function setPreco($valor) {
+        if ($valor >= 0) {
+            $this->preco = $valor;
+        }
+    }
+protected function adicionarEstoque($quantidade) {
+        if ($quantidade > 0) {
+            $this->estoque += $quantidade;
+        }
+    }
+
+public function verEstoque() {
+        return $this->estoque;
+    }
+}
+
+class LivroFisico extends Livro {
+    public function reporEstoque($quantidade) {
+        $this->adicionarEstoque($quantidade);
+    }
+}
+>?
